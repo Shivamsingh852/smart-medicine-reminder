@@ -1,0 +1,95 @@
+.reminder-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(20, 39, 32, 0.84);
+  backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.reminder-card {
+  width: min(620px, 100%);
+  background: #fff;
+  border: 4px solid var(--amber);
+  border-radius: 16px;
+  padding: 48px 40px;
+  text-align: center;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.35);
+  animation: reminder-pop 0.3s ease-out;
+}
+
+.reminder-ring {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #fff0d8;
+  color: #b36f1c;
+  font-size: 40px;
+  font-weight: 700;
+  animation: reminder-pulse 1s ease-in-out infinite;
+}
+
+.reminder-card h2 {
+  margin: 12px 0 18px;
+  font: 800 32px Manrope, sans-serif;
+  color: var(--dark);
+}
+
+.reminder-medicine {
+  display: block;
+  font: 800 30px Manrope, sans-serif;
+  color: var(--green);
+}
+
+.reminder-details {
+  font-size: 18px;
+  color: var(--ink);
+  margin: 10px 0;
+}
+
+.reminder-window {
+  color: var(--muted);
+  margin: 20px 0 28px;
+}
+
+.reminder-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.reminder-actions .primary,
+.reminder-actions .secondary {
+  min-width: 145px;
+}
+
+.reminder-dismiss {
+  width: 100%;
+  background: none;
+  color: var(--muted);
+  font-size: 13px;
+  text-decoration: underline;
+  margin-top: 8px;
+}
+
+@keyframes reminder-pop {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes reminder-pulse {
+  50% { transform: scale(1.08); box-shadow: 0 0 0 10px #fff0d8; }
+}
+
+@media (max-width: 620px) {
+  .reminder-card { padding: 34px 22px; }
+  .reminder-card h2 { font-size: 26px; }
+  .reminder-medicine { font-size: 25px; }
+}
